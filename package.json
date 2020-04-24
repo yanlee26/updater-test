@@ -1,12 +1,24 @@
 {
-  "name": "electron-quick-start",
+  "name": "updater-test",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --mac",
+    "publish": "build --mac --win -p always"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "yanlee26",
+        "repo": "updater-test"
+      }
+    ]
+  },
+  "repository": "https://github.com/yanlee26/updater-test.git",
   "keywords": [
     "Electron",
     "quick",
@@ -17,6 +29,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^8.2.3"
+    "electron": "^8.2.3",
+    "electron-builder": "^22.4.1"
+  },
+  "dependencies": {
+    "electron-log": "^4.1.1",
+    "electron-updater": "^4.2.5"
   }
 }
